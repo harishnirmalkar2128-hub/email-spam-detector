@@ -20,10 +20,12 @@ A high-performance, full-stack Machine Learning application designed to detect a
 ---
 
 ## 🏗️ System Architecture
+
 +-------------------+        +-------------------+        +---------------------+
 |   User Input UI   | -----> |  FastAPI Backend  | -----> |   TF-IDF Vectorizer |
 | (HTML/CSS/JS App) | <----- |   (Python Server) | <----- |  & Naive Bayes Model|
 +-------------------+        +-------------------+        +---------------------+
+
 
 1. **Text Preprocessing:** The backend cleans raw text by stripping unnecessary noise.
 2. **Feature Extraction:** **TF-IDF Vectorizer** turns text into numerical matrices based on term importance.
