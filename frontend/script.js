@@ -45,8 +45,12 @@ const samples = {
     "Your registration for the upcoming AI & Cloud Web Seminar is confirmed."
   ]
 };
+
 // Common spam triggers to extract locally
 const triggerWordsList = ["win", "won", "congratulations", "urgent", "locked", "cash", "reward", "free", "claim", "iphone", "unpaid", "bills", "earn", "working from home", "failed", "subscription", "gift card", "crypto", "bitcoin", "loan", "refund", "selected"];
+
+// 🚀 LIVE API URL ENDPOINT
+const API_URL = "https://email-spam-detector-jcdo.onrender.com/predict";
 
 let lastSpamIndex = -1;
 let lastHamIndex = -1;
@@ -90,7 +94,8 @@ async function analyzeEmail() {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/predict", {
+    // 🔥 LIVE RENDER SERVER CALL HERE
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: textInput })
@@ -130,7 +135,7 @@ async function analyzeEmail() {
     addToHistory(textInput, data.label, data.is_spam, data.confidence);
 
   } catch (error) {
-    alert("Error connecting to server! Check if FastAPI is running. ❌");
+    alert("Error connecting to live server! Please check network connection. ❌");
     console.error(error);
   }
 }
