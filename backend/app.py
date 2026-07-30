@@ -1,12 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import joblib
+import os
 
 # Initialize FastAPI App
 app = FastAPI(title="Spam Detector API")
 
-# Enable CORS (Cross-Origin Resource Sharing) so Frontend can communicate
+# Enable CORS (Cross-Origin Resource Sharing)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,9 +18,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Dynamic path resolving for Model loading
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "model", "spam_model.pkl")
+VECTORIZER_PATH = os.path.join(BASE_DIR, "model", "vectorizer.pkl")
+
 # Load Trained Model and Vectorizer
-model = joblib.load('model/spam_model.pkl')
-vectorizer = joblib.load('model/vectorizer.pkl')
+model = joblib.load(MODEL_PATH)
+vectorizer = joblib.load(VECTORIZER_PATH)
 
 # Define Input Data Format
 class EmailInput(BaseModel):
@@ -25,10 +33,10 @@ class EmailInput(BaseModel):
 
 @app.post("/predict")
 def predict_spam(data: EmailInput):
-    # Step 1: Logic explanation - Transform incoming raw text into TF-IDF numerical vector
+    # Step 1: Transform text to numerical vector
     vec_text = vectorizer.transform([data.text])
     
-    # Step 2: Predict class (0 or 1) and calculate probability score
+    # Step 2: Predict class and confidence
     prediction = model.predict(vec_text)[0]
     probabilities = model.predict_proba(vec_text)[0]
     confidence = float(max(probabilities) * 100)
@@ -42,3 +50,14 @@ def predict_spam(data: EmailInput):
         "is_spam": is_spam,
         "confidence": round(confidence, 2)
     }
+
+# 🚀 Serve Static Frontend Files
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
+
+# Mount CSS, JS, Images folder
+app.mount("/frontend", StaticFiles(directory=FRONTEND_DIR), name="frontend")
+
+# Serve index.html on root route "/"
+@app.get("/")
+def serve_frontend():
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
