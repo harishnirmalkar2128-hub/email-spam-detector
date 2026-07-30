@@ -26,13 +26,11 @@ flowchart LR
     UI[User Input UI (HTML/CSS/JS App)] <--> Backend[FastAPI Backend (Python Server)]
     Backend <--> Model[TF-IDF Vectorizer & Naive Bayes Model]
 
-
+```
 
 1. **Text Preprocessing:** The backend cleans raw text by stripping unnecessary noise.
 2. **Feature Extraction:** **TF-IDF Vectorizer** turns text into numerical matrices based on term importance.
 3. **Classification:** A pre-trained **Multinomial Naive Bayes** model calculates probabilities to output predictions.
-
-```
 
 ## 🛠️ Tech Stack & Tools
 
