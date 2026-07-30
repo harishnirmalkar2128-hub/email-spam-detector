@@ -9,6 +9,15 @@ A high-performance, full-stack Machine Learning application designed to detect a
 
 ---
 
+## 📸 Application Screenshots
+
+Here is a visual walkthrough of the Email Spam Detector web application:
+
+| Main Dashboard | Spam Detection Output | Legitimate Message Output |
+| :---: | :---: | :---: |
+| ![Dashboard](./images/image1.png) | ![Spam Result](./images/image2.png) | ![Ham Result](./images/image3.png) |
+
+
 ## 📸 Key Features
 
 * ⚡ **Real-Time Analysis:** Get instant predictions (`Spam` vs. `Ham`) with probability confidence scores.
@@ -18,6 +27,7 @@ A high-performance, full-stack Machine Learning application designed to detect a
 * 🎨 **Modern Dark UI:** Responsive glassmorphism interface with custom CSS animations.
 
 ---
+
 
 ## 🏗️ System Architecture
 
@@ -44,8 +54,6 @@ A high-performance, full-stack Machine Learning application designed to detect a
 | **Frontend** | HTML5, Modern CSS3 (Glassmorphism), JavaScript (Fetch API) |
 
 ---
-
-## 📁 Project Structure
 
 ## 📁 Project Structure
 
