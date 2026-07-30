@@ -13,7 +13,7 @@ A high-performance, full-stack Machine Learning application designed to detect a
 
 Here is a visual walkthrough of the Email Spam Detector web application:
 
-| Main Dashboard | Spam Detection Output | Legitimate Message Output |
+| Main Dashboard | Legitimate Detection Output | Spam Message Output |
 | :---: | :---: | :---: |
 | ![Dashboard](./images/image1.png) | ![Spam Result](./images/image2.png) | ![Ham Result](./images/image3.png) |
 
