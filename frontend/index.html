@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Email Guard | Advanced Spam Shield 🛡️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="main-wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="icon-badge"><i class="fa-solid fa-shield-halved"></i></div>
+      <h2>AI Email Security Guard</h2>
+      <p>Real-time machine learning threat analysis & spam detection</p>
+    </div>
+
+    <!-- Feature 4: Live Stats Counter -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total Scans</span>
+        <strong id="totalScans">0</strong>
+      </div>
+      <div class="stat-card spam">
+        <span class="stat-label">Spam Blocked</span>
+        <strong id="totalSpam">0</strong>
+      </div>
+      <div class="stat-card ham">
+        <span class="stat-label">Clean Emails</span>
+        <strong id="totalHam">0</strong>
+      </div>
+    </div>
+
+    <!-- Quick Sample Tests -->
+    <div class="samples-wrapper">
+      <span class="sample-label">Quick Test:</span>
+      <button class="pill-btn spam" onclick="loadSample('spam')"><i class="fa-solid fa-bug"></i> Sample Spam</button>
+      <button class="pill-btn ham" onclick="loadSample('ham')"><i class="fa-solid fa-circle-check"></i> Sample Ham</button>
+    </div>
+
+    <!-- Text Area Input -->
+    <div class="input-box">
+      <textarea id="emailInput" placeholder="Paste incoming email headers or content here to scan..."></textarea>
+      <div class="action-bar">
+        <button id="clearBtn" class="btn secondary" onclick="clearInput()"><i class="fa-solid fa-broom"></i> Clear</button>
+        <button id="predictBtn" class="btn primary" onclick="analyzeEmail()"><i class="fa-solid fa-bolt"></i> Scan Email</button>
+      </div>
+    </div>
+
+    <!-- Output Result Card -->
+    <div id="resultCard" class="result-card hidden">
+      <div class="result-header">
+        <span id="resultBadge" class="status-badge"><i id="resultIcon"></i> <span id="resultLabel">--</span></span>
+        <!-- Feature 3: Copy Result -->
+        <button class="icon-btn" onclick="copyResult()" title="Copy Analysis"><i class="fa-solid fa-copy"></i></button>
+      </div>
+
+      <!-- Feature 1: Dual Probability Bar -->
+      <div class="confidence-container">
+        <div class="confidence-info">
+          <span>AI Model Prediction Score</span>
+          <strong id="confidenceScore">0%</strong>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progressBar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Trigger Words -->
+      <div id="keywordsSection" class="keywords-section hidden">
+        <span class="kw-label"><i class="fa-solid fa-flag"></i> Flagged Trigger Words:</span>
+        <div id="keywordsContainer" class="keywords-container"></div>
+      </div>
+    </div>
+
+    <!-- History Log -->
+    <div class="history-section">
+      <div class="history-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> Scan Activity Log</h3>
+        <button class="clear-history-btn" onclick="clearHistory()"><i class="fa-solid fa-trash-can"></i> Clear History</button>
+      </div>
+      <div id="historyList" class="history-list">
+        <p class="empty-msg"><i class="fa-solid fa-inbox"></i> No scans executed yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
