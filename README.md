@@ -47,6 +47,9 @@ A high-performance, full-stack Machine Learning application designed to detect a
 
 ## 📁 Project Structure
 
+## 📁 Project Structure
+
+```text
 email-spam-detector/
 │
 ├── app.py               # Main FastAPI server script
@@ -57,11 +60,11 @@ email-spam-detector/
 ├── README.md            # Project documentation
 │
 └── static/              # Frontend assets
-├── index.html       # Dashboard HTML layout
-├── style.css        # Glassmorphism styling
-└── script.js        # API integration script
-
+    ├── index.html       # Dashboard HTML layout
+    ├── style.css        # Glassmorphism styling
+    └── script.js        # API integration script
 ---
+```
 
 ## 🚀 Quickstart & Installation
 
