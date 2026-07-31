@@ -78,7 +78,7 @@ email-spam-detector/
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR-USERNAME/email-spam-detector.git](https://github.com/YOUR-USERNAME/email-spam-detector.git)
+git clone [https://github.com/harishnirmalkar2128-hub/email-spam-detector.git](https://github.com/harishnirmalkar2128-hub/email-spam-detector.git)
 cd email-spam-detector
 
 ```
